@@ -12,6 +12,6 @@ class Url < ActiveRecord::Base
   end
 
   def shortened_identifier
-    id
+    id * 100
   end
 end
