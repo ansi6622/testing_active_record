@@ -6,4 +6,12 @@ class Url < ActiveRecord::Base
                 with: URI::regexp(%w(http https)),
                 message: "is not a valid URL"
             }
+
+  def self.active
+    where(active: true)
+  end
+
+  def shortened_identifier
+    id
+  end
 end
