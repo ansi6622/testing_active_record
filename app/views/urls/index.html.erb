@@ -1,0 +1,7 @@
+<%= link_to 'Shorten Url', new_url_path %>
+
+<ul>
+  <% @urls.each do |url| %>
+      <li><%= url.original_url %></li>
+  <% end %>
+</ul>

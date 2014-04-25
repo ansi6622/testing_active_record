@@ -1,4 +1,8 @@
 class UrlsController < ApplicationController
+  def index
+    @urls = Url.all
+  end
+
   def new
     @url = Url.new
   end
@@ -7,15 +11,11 @@ class UrlsController < ApplicationController
     @url = Url.create(url_params)
 
     if @url.valid?
-      redirect_to url_path(@url)
+      redirect_to urls_path
     else
-      render :show
+      render :new
     end
 
-  end
-
-  def show
-    @url = Url.find(params[:id])
   end
 
   private

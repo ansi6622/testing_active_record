@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "urls#new"
+  root "urls#index"
 
   resources :urls
 end
