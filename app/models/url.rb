@@ -8,10 +8,14 @@ class Url < ActiveRecord::Base
             }
 
   def self.active
-    where(active: true)
+    where(inactivated_on: nil)
   end
 
   def shortened_identifier
     id * 1000
+  end
+
+  def active?
+    inactivated_on == nil
   end
 end

@@ -6,6 +6,18 @@ describe Url do
       @url = Url.new(original_url: 'http://google.com')
       expect(@url).to be_valid
     end
+    it 'is active upon creation' do
+      expect(@url).to be_active
+      # This is the same as the above line of code
+      # expect(@url.active?).to eq(true)
+    end
+
+    it 'is inactive if it has a inactivated_on date' do
+      url = Url.new(original_url: 'http://bar.com', inactivated_on: 1.day.ago)
+
+      expect(url).to_not be_active
+    end
+
     it 'must have an original url' do
       @url.original_url = ''
 
