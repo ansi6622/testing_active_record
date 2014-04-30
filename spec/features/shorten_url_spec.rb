@@ -13,7 +13,7 @@ feature 'URL shortening' do
     end
   end
 
-  scenario 'Reports an error when user tries to shorten a non-url' do
+  scenario 'Reports an error when url is invalid' do
     visit '/'
     click_link 'Shorten Url'
 
@@ -21,14 +21,5 @@ feature 'URL shortening' do
     click_on 'Shorten'
 
     expect(page).to have_content 'Original url is not a valid URL'
-  end
-
-  scenario 'Reports an error when user tries to shorten a blank url' do
-    visit '/'
-    click_link 'Shorten Url'
-
-    click_on 'Shorten'
-
-    expect(page).to have_content "Original url can't be blank"
   end
 end
