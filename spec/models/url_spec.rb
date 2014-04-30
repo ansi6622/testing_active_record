@@ -35,4 +35,12 @@ describe Url do
       expect(Url.active).to match_array [living_social]
     end
   end
+
+  describe 'can caluclate a shortened_identifier' do
+    it 'returns the id of the url' do
+      url = Url.create!(original_url: 'http://foo.com')
+
+      expect(url.shortened_identifier).to eq(url.id * 1000)
+    end
+  end
 end
