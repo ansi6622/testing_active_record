@@ -27,4 +27,12 @@ describe Url do
     end
   end
 
+  describe 'finding acitve urls' do
+    it 'only shows urls that are active' do
+      living_social = Url.create!(original_url: 'http://foo.com', active: true)
+      Url.create!(original_url: 'http://bar.com', active: false)
+
+      expect(Url.active).to match_array [living_social]
+    end
+  end
 end
